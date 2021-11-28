@@ -3,7 +3,7 @@ import React from 'react';
 import {handleInitialData} from '../actions/shared'
 import {Fragment} from 'react'
 import LoadingBar from 'react-redux-loading';
-
+import Dashboard from './Dashboard';
 
 class App extends React.Component{
 
@@ -20,7 +20,8 @@ class App extends React.Component{
         <div>
           {loading === true 
           ? null 
-          : <h2> Hello World </h2> }
+          : <Dashboard/>
+          }
         </div>
       </Fragment>
     )

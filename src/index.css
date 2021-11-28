@@ -1,0 +1,40 @@
+.dashboard-buttons{
+  display: flex;
+  padding: 10 px;
+  justify-content: center;
+  height: 50px;
+  border: solid lightgray;
+}
+
+.dashboard-container{
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: solid lightgray;
+}
+
+.questions-view{
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+  width: 300px;
+  text-align: center;
+}
+
+.questions-view-active{
+  padding: 15px;
+  cursor: pointer;
+  background-color:lightgrey;
+  color:rgb(63, 176, 221);
+  font-weight: bold;
+  margin: 0;
+  width: 300px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
