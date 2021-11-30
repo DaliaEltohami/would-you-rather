@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import Poll from './Poll'
 
 class Dashboard extends Component{
     state = {
@@ -27,10 +28,14 @@ class Dashboard extends Component{
                 </div>
                 {view === 'answered'
                 ? answeredQuestions.map(id=>(
-                    <p>{id}</p>
+                    <li key = {id}>
+                        <Poll view = {view} id = {id}/>
+                    </li>
                   ))
                 : unansweredQuestions.map(id=>(
-                    <p>{id}</p>
+                    <li>
+                        <Poll view = {view} id = {id}/>
+                    </li>
                   ))
                 }
             </div>
@@ -44,7 +49,6 @@ function mapStateToProps({questions, users ,authedUser}){
     const answeredQuestionsIds = Object.keys(answeredQuestions)
     console.log(answeredQuestionsIds)
     const unansweredQuestionsIds = []
-    console.log(authedUser.answers)
     Object.keys(questions).map((id)=>{
         if(!answeredQuestionsIds.includes(id)){
             unansweredQuestionsIds.push(id)
