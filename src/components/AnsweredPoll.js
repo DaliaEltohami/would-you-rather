@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import ProgressBar from './ProgressBar'
 
 class AnsweredPoll extends Component{
     render(){
-        const {questionAuthor, avatar, optionOne, optionTwo, completed1, completed2, question, authedUser} = this.props
+        const {questionAuthor, avatar, optionOne, optionTwo, completed1, completed2, question, 
+                authedUser,totalVotes, optionOneVotes, optionTwoVotes} = this.props
         console.log(completed1,completed2)
         return(
             <div className = "answered-poll-container">
@@ -22,11 +24,14 @@ class AnsweredPoll extends Component{
                                          : "answer-no"
                                         }
                         >
-                            <p className = "poll-option ">{optionOne}</p>
-                            {question.optionOne.votes.includes(authedUser) && (
-                            <p className = "your-vote">Your Vote</p>
-                            )}
-                            
+                            <div className = "poll-data1">
+                                <p className = "poll-option ">{optionOne}</p>
+                                {question.optionOne.votes.includes(authedUser) && (
+                                <p className = "your-vote">Your Vote</p>
+                                )}
+                            </div>
+                            <ProgressBar completed = {completed1}/>
+                            <div className = "votes"><p>{optionOneVotes} out of {totalVotes} votes</p></div>
                         </div>
                         <div
                             className = {question.optionTwo.votes.includes(authedUser) 
@@ -34,11 +39,14 @@ class AnsweredPoll extends Component{
                                         : "answer-no"
                                         }
                         >
-                            <p className = "poll-option ">{optionTwo}</p>
-                            {question.optionTwo.votes.includes(authedUser) && (
-                            <p className = "your-vote">Your Vote</p>
-                            )}
-                             
+                            <div className = "poll-data1">
+                                <p className = "poll-option ">{optionTwo}</p>
+                                {question.optionTwo.votes.includes(authedUser) && (
+                                <p className = "your-vote">Your Vote</p>
+                                )}
+                            </div>
+                            <ProgressBar completed = {completed2}/>
+                            <div className = "votes"><p>{optionTwoVotes} out of {totalVotes} votes</p></div>
                         </div>
                     </div>
                 </div>
@@ -54,8 +62,10 @@ function mapStateToProps({authedUser,users,questions},props){
     const optionOne = questions[id].optionOne.text
     const optionTwo = questions[id].optionTwo.text
     const totalVotes = questions[id].optionOne.votes.length + questions[id].optionTwo.votes.length
-    const completed1 = (questions[id].optionOne.votes.length / totalVotes) * 100
-    const completed2 = (questions[id].optionTwo.votes.length / totalVotes) * 100
+    const optionOneVotes = questions[id].optionOne.votes.length
+    const optionTwoVotes =  questions[id].optionTwo.votes.length
+    const completed1 = Math.round(( optionOneVotes / totalVotes) * 100)
+    const completed2 = Math.round(( optionTwoVotes / totalVotes) * 100)
     const question = questions[id]
     return{
         questionAuthor,
@@ -66,7 +76,10 @@ function mapStateToProps({authedUser,users,questions},props){
         completed1,
         completed2,
         id,
-        authedUser
+        authedUser,
+        totalVotes,
+        optionOneVotes,
+        optionTwoVotes
     }
 }
 

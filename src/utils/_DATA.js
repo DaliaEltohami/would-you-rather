@@ -7,7 +7,8 @@ let users = {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
       "am8ehyc8byjqgar0jgpub9": 'optionTwo',
-      "loxhs1bqm25b708cmbf3g": 'optionTwo'
+      "loxhs1bqm25b708cmbf3g": 'optionTwo',
+      "vthrdm985a262al8qx3do": 'optionTwo'
     },
     questions: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
@@ -53,11 +54,11 @@ let questions = {
     author: 'johndoe',
     timestamp: 1468479767190,
     optionOne: {
-      votes: [],
+      votes: [ 'sarahedo',],
       text: 'become a superhero',
     },
     optionTwo: {
-      votes: ['johndoe', 'sarahedo'],
+      votes: ['johndoe',],
       text: 'become a supervillain'
     }
   },
@@ -96,7 +97,7 @@ let questions = {
       text: 'find $50 yourself',
     },
     optionTwo: {
-      votes: ['johndoe'],
+      votes: ['johndoe','sarahedo'],
       text: 'have your best friend find $500'
     }
   },
