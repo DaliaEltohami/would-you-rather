@@ -7,6 +7,9 @@ import Dashboard from './Dashboard';
 import Nav from './Nav';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import AnsweredPoll from './AnsweredPoll';
+import UnansweredPoll from './UnansweredPoll';
+import NewPoll from './NewPoll'
+import LeaderBoard from './LeaderBoard';
 
 class App extends React.Component{
 
@@ -28,6 +31,9 @@ class App extends React.Component{
                     <Nav/>
                     <Route path = "/" exact component = {Dashboard}/>
                     <Route path = "/answered-poll/:id" component = {AnsweredPoll}/>
+                    <Route path = "/unanswered-poll/:id" component = {UnansweredPoll} />
+                    <Route path = "/new-poll" component = {NewPoll}/>
+                    <Route path = "/leader-board" component = {LeaderBoard}/>
                 </div>
               </Fragment>
             }

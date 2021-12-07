@@ -33,7 +33,7 @@ class Dashboard extends Component{
                     </li>
                   ))
                 : unansweredQuestions.map(id=>(
-                    <li>
+                    <li key = {id}>
                         <Poll view = {view} id = {id}/>
                     </li>
                   ))

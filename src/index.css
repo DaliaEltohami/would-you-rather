@@ -121,6 +121,7 @@ li {
 
 .poll-details{
   display: flex;
+  height: 85%;
 }
 
 .poll-option{
@@ -164,7 +165,8 @@ li {
 .avatar-answered{
   height: 170px;
   border-radius: 25px;
-  margin: 90px 20px;
+  align-self: center;
+  margin-left: 15px;
 }
 
 .answer-yes{
@@ -209,4 +211,87 @@ li {
 .votes{
   align-self: center;
   font-weight: bolder;
+}
+
+.unanswered-poll-container{
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: solid lightgray;
+  height: 300px;
+}
+
+.radio {
+  margin-left: 0;
+}
+
+.new-poll-container{
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: solid lightgray;
+  height: 300px;
+  padding: 0 10px;
+}
+
+.new-poll-header{
+  max-width: 100%;
+  margin: 0 auto;
+  border-bottom: solid lightgray;
+  height: 15%;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.option-input{
+  width: -webkit-fill-available;
+}
+
+.center{
+  text-align: center;
+}
+
+.leader-board-container{
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.user-container{
+  margin: 0 auto;
+  border-radius: 4px;
+  border: solid lightgray;
+  /* height: 300px;
+  padding: 10px; */
+}
+
+.leader-board-header{
+  max-width: 100%;
+  margin: 0 auto;
+  border-bottom: solid lightgray;
+  height: 15%;
+  text-align: center;
+  color: goldenrod
+}
+
+.user-details-container{
+  display: flex;
+  padding: 5px 0;
+}
+
+.user-counts {
+  width: 50%;
+  border-left: 2px solid lightgray;
+  padding: 0 10px;
+}
+
+.count{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.user-score {
+  width: 25%;
+  border-left: 2px solid lightgray;
+  padding: 30px 10px;
 }
