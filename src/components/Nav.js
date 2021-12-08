@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { setAuthedUser } from '../actions/authedUser'
+import { Redirect, withRouter } from 'react-router-dom'
 
 class Nav extends Component{
+    handleLogout = () => {
+        this.props.dispatch(setAuthedUser(null))
+        this.props.history.push('/login')
+    }
     render(){
         return(
             <nav className = "nav">
@@ -25,7 +31,8 @@ class Nav extends Component{
                         </li>
                     </ul>
                 </div>
-                <div>
+                {this.props.authedUser !== null && (
+                    <div>
                     <ul className = "nav-list">
                         <li className = "nav-greating">
                             <span> Hello, {this.props.authedUser}</span>
@@ -35,9 +42,10 @@ class Nav extends Component{
                                 className = "avatar-thumb"
                             />
                         </li>
-                        <li>Logout</li>
+                        <li onClick = {this.handleLogout} className = "logout">Logout</li>
                     </ul>
                 </div>
+                )}
             </nav>
         )
     }
@@ -45,7 +53,7 @@ class Nav extends Component{
 
 function mapStateToProps({users,authedUser}){
     console.log(authedUser)
-    const avatar = users[authedUser].avatarURL
+    const avatar = authedUser ? users[authedUser].avatarURL : null
     console.log(avatar)
     return{
         authedUser,
@@ -53,4 +61,4 @@ function mapStateToProps({users,authedUser}){
     }
 }
 
-export default connect(mapStateToProps)(Nav)
+export default withRouter(connect(mapStateToProps)(Nav))

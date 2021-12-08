@@ -295,3 +295,50 @@ li {
   border-left: 2px solid lightgray;
   padding: 30px 10px;
 }
+
+.login-heading{
+  background-color: rgb(233, 230, 230);
+  border-bottom: 2px solid lightgray;
+  font-weight: bolder;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
+  height: 25%;
+}
+
+.login-container{
+
+}
+
+.sign-in{
+  color : rgb(63, 176, 221);
+  font-size: 28px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.login-details{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 55%;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-select{
+  width: 30%;
+}
+
+.login-button{
+  width: 150px;
+  background-color: rgb(63, 176, 221);
+  margin-top: 20px;
+  border: 1px solid ;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.logout{
+  cursor: pointer;
+}

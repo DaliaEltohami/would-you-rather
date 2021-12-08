@@ -10,6 +10,8 @@ import AnsweredPoll from './AnsweredPoll';
 import UnansweredPoll from './UnansweredPoll';
 import NewPoll from './NewPoll'
 import LeaderBoard from './LeaderBoard';
+import Login from './Login';
+import {Redirect} from 'react-router-dom'
 
 class App extends React.Component{
 
@@ -19,7 +21,7 @@ class App extends React.Component{
   }
 
   render(){
-    const {loading} = this.props
+    const {loading, authedUser} = this.props
     console.log(loading)
     return(
       <Router>
@@ -29,11 +31,34 @@ class App extends React.Component{
             : <Fragment> 
                 <div className = "container">
                     <Nav/>
-                    <Route path = "/" exact component = {Dashboard}/>
-                    <Route path = "/answered-poll/:id" component = {AnsweredPoll}/>
-                    <Route path = "/unanswered-poll/:id" component = {UnansweredPoll} />
-                    <Route path = "/new-poll" component = {NewPoll}/>
-                    <Route path = "/leader-board" component = {LeaderBoard}/>
+                    <Route path = "/" exact render = {() => {
+                      return authedUser !== null
+                              ? <Dashboard/>
+                              : <Redirect to = '/login'/>
+                    }}/>
+                    <Route path = "/answered-poll/:id" render = {() => {
+                      return authedUser !== null
+                              ? <AnsweredPoll/>
+                              : <Redirect to = '/login'/>
+                    }}/>
+                    <Route path = "/unanswered-poll/:id" render = {() => {
+                      return authedUser !== null
+                              ? <UnansweredPoll/>
+                              : <Redirect to = '/login'/>
+                    }}/>
+                    <Route path = "/add" render = {() => {
+                      return authedUser !== null
+                              ? <NewPoll/>
+                              : <Redirect to = '/login'/>
+                    }}/>
+                    <Route path = "/leader-board" render = {() => {
+                      return authedUser !== null
+                              ? <LeaderBoard/>
+                              : <Redirect to = '/login'/>
+                    }}/>
+                    <Route path = "/login" render = {() => (
+                      <Login/>
+                      )} />
                 </div>
               </Fragment>
             }
@@ -44,9 +69,10 @@ class App extends React.Component{
 
 
 
-function mapStateToProps({loading}){
+function mapStateToProps({loading,authedUser}){
   return{
-    loading
+    loading,
+    authedUser
   }
 }
 
