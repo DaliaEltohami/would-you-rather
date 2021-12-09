@@ -15,13 +15,19 @@ class Login extends Component{
     }
     submitChange = () => {
         if(this.state.value !== ""){
+            let path = '/'
             this.props.dispatch(setAuthedUser(this.state.value))
-            this.props.history.push('/')
+            if(this.props.location.state){
+                path = this.props.location.state.from
+            }
+            console.log(path)
+            this.props.history.push(path)
         }else{
             alert('Please select User to login')
         }
     }
     render(){
+        console.log(this.props)
         if(this.props.authedUser !== null){
             return <div className = "center">You are logged in</div>
         }

@@ -20,12 +20,12 @@ class Nav extends Component{
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to = '/new-poll' activeClassName = "active">
+                            <NavLink to = '/add' activeClassName = "active">
                                 New Question
                             </NavLink>  
                         </li>
                         <li>
-                            <NavLink to = '/leader-board' activeClassName = "active">
+                            <NavLink to = '/leaderboard' activeClassName = "active">
                                 Leader Board
                             </NavLink>
                         </li>

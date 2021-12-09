@@ -36,27 +36,39 @@ class App extends React.Component{
                               ? <Dashboard/>
                               : <Redirect to = '/login'/>
                     }}/>
-                    <Route path = "/answered-poll/:id" render = {() => {
+                    <Route path = "/answered-poll/:id" render = {({location}) => {
                       return authedUser !== null
                               ? <AnsweredPoll/>
-                              : <Redirect to = '/login'/>
+                              : <Redirect to = {{
+                                pathname : '/login',
+                                state : { from : location.pathname}
+                              }}/>
                     }}/>
-                    <Route path = "/unanswered-poll/:id" render = {() => {
+                    <Route path = "/unanswered-poll/:id" render = {({location}) => {
                       return authedUser !== null
                               ? <UnansweredPoll/>
-                              : <Redirect to = '/login'/>
+                              : <Redirect to = {{
+                                pathname : '/login',
+                                state : { from : location.pathname}
+                              }}/>
                     }}/>
-                    <Route path = "/add" render = {() => {
+                    <Route path = "/add" render = {({location}) => {
                       return authedUser !== null
                               ? <NewPoll/>
-                              : <Redirect to = '/login'/>
+                              : <Redirect to = {{
+                                pathname : '/login',
+                                state : { from : location.pathname}
+                              }}/>
                     }}/>
-                    <Route path = "/leader-board" render = {() => {
+                    <Route path = "/leaderboard" render = {({location}) => {
                       return authedUser !== null
                               ? <LeaderBoard/>
-                              : <Redirect to = '/login'/>
+                              : <Redirect to = {{
+                                pathname : '/login',
+                                state : { from : location.pathname}
+                              }}/>
                     }}/>
-                    <Route path = "/login" render = {() => (
+                    <Route path = "/login" render = {({location}) => (
                       <Login/>
                       )} />
                 </div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import ProgressBar from './ProgressBar'
+import { withRouter } from 'react-router-dom'
 
 class AnsweredPoll extends Component{
     render(){
@@ -99,4 +100,4 @@ function mapStateToProps({authedUser,users,questions},props){
     
 }
 
-export default connect(mapStateToProps)(AnsweredPoll)
+export default withRouter(connect(mapStateToProps)(AnsweredPoll))
