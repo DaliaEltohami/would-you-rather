@@ -66,7 +66,7 @@ class AnsweredPoll extends Component{
 }
 
 function mapStateToProps({authedUser,users,questions},props){
-    const {id} = props.match.params
+    const {id} = props
     const question = questions[id]
     console.log(question)
     if(question !== undefined){

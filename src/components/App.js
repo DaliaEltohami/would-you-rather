@@ -12,6 +12,7 @@ import NewPoll from './NewPoll'
 import LeaderBoard from './LeaderBoard';
 import Login from './Login';
 import {Redirect} from 'react-router-dom'
+import Questions from './Questions'
 
 class App extends React.Component{
 
@@ -36,17 +37,9 @@ class App extends React.Component{
                               ? <Dashboard/>
                               : <Redirect to = '/login'/>
                     }}/>
-                    <Route path = "/answered-poll/:id" render = {({location}) => {
+                    <Route path = "/questions/:id" render = {({location}) => {
                       return authedUser !== null
-                              ? <AnsweredPoll/>
-                              : <Redirect to = {{
-                                pathname : '/login',
-                                state : { from : location.pathname}
-                              }}/>
-                    }}/>
-                    <Route path = "/unanswered-poll/:id" render = {({location}) => {
-                      return authedUser !== null
-                              ? <UnansweredPoll/>
+                              ? <Questions/>
                               : <Redirect to = {{
                                 pathname : '/login',
                                 state : { from : location.pathname}

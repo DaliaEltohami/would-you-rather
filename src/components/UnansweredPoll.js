@@ -22,7 +22,7 @@ class UnansweredPoll extends Component{
         }
         if (answer !== null){
             dispatch(handlePollAnswer(answer, id))
-            this.props.history.push('/')
+            this.props.history.push(`/questions/${id}`)
         }
         else{
             alert('please choose answer')
@@ -66,7 +66,7 @@ class UnansweredPoll extends Component{
 }
 
 function mapStateToProps({questions,users,authedUser},props){
-    const {id} = props.match.params
+    const {id} = props
     const question = questions[id]
     if ( question !== undefined){
         const questionAuthor = questions[id].author

@@ -20,9 +20,7 @@ class Poll extends Component{
                         <p className = "poll-option ">{optionTwo}</p>
                         <p className = "poll-view">
                             <Link 
-                                to = {view === 'answered' 
-                                        ? `/answered-poll/${id}`
-                                        : view === 'unanswered' && `/unanswered-poll/${id}`}
+                                to = {`/questions/${id}`}
                                 className = "poll-link">View Poll
                             </Link>
                         </p>
